@@ -7,12 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Authentication</ion-title>
+    <ion-title>Connectez-vous</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card>
+    <form (submit)="doLogin()">
+      <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input [(ngModel)]="loginData.email" name="email" type="text" placeholder="email" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input [(ngModel)]="loginData.password" name="password" type="password" placeholder="Password"></ion-input>
+      </ion-item>
+      <button ion-button block type="submit">
+        Login
+      </button>
+    </form>
+  </ion-card>
 </ion-content>
