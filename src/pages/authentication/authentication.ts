@@ -4,6 +4,7 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 import { HomePage } from '../home/home';
 import { MenuCPage } from '../menu-c/menu-c';
 import { MenuTPage } from '../menu-t/menu-t';
+import { ListeTPage } from '../liste-t/liste-t';
 /**
  * Generated class for the AuthenticationPage page.
  *
@@ -18,7 +19,7 @@ import { MenuTPage } from '../menu-t/menu-t';
 export class AuthenticationPage{
 
   loading: any;
-  loginData = { email:'', password:'', id:'' };
+  loginData = { email:'', password:'', userstype_id:'' };
   data: any;
 
   constructor(public navCtrl: NavController, 
@@ -32,8 +33,13 @@ export class AuthenticationPage{
     .then((result) => {
       this.loading.dismiss();
       this.data = result;
+      if (this.data.success.userstype_id == 3) {
       localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(MenuTPage);
+      this.navCtrl.setRoot(MenuCPage);
+      console.log('result',this.data) }
+      if (this.data.success.userstype_id == 1) {
+      localStorage.setItem('token', this.data.access_token);
+      this.navCtrl.setRoot(ListeTPage);}
     }, (err) => {
       this.loading.dismiss();
       this.presentToast(err);
