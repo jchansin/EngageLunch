@@ -12,10 +12,12 @@ import { RecapCPage } from './../pages/recap-c/recap-c';
 import { MenuTPage } from './../pages/menu-t/menu-t';
 import { MenuCPage } from './../pages/menu-c/menu-c';
 import { ListeTPage } from './../pages/liste-t/liste-t';
+import { RegisterPage } from '../pages/register/register';
 
 import { AuthenticationPage } from './../pages/authentication/authentication';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
+import { AssitantePage } from '../pages/assitante/assitante';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { HttpModule } from '@angular/http';
     ListeTPage,
     MenuCPage,
     MenuTPage,
-    RecapCPage
+    RecapCPage,
+    RegisterPage,
+    AssitantePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { HttpModule } from '@angular/http';
     ListeTPage,
     MenuCPage,
     MenuTPage,
-    RecapCPage
+    RecapCPage,
+    RegisterPage,
+    AssitantePage
   ],
   providers: [
     StatusBar,

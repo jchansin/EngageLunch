@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { RegisterPage } from '../../pages/register/register';
 
-let apiUrl = 'http://groupe1.api/api/';
+let apiUrl = 'http://groupe4.api/api/';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +15,20 @@ export class AuthService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.post(apiUrl+'login', JSON.stringify(credentials), {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  register(data) {
+    return new Promise((resolve, reject) => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        this.http.post(apiUrl+'register', JSON.stringify(data), {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {

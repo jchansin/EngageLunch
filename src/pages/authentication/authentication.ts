@@ -5,6 +5,8 @@ import { HomePage } from '../home/home';
 import { MenuCPage } from '../menu-c/menu-c';
 import { MenuTPage } from '../menu-t/menu-t';
 import { ListeTPage } from '../liste-t/liste-t';
+import { RegisterPage } from '../register/register';
+import { AssitantePage } from '../assitante/assitante';
 /**
  * Generated class for the AuthenticationPage page.
  *
@@ -19,7 +21,7 @@ import { ListeTPage } from '../liste-t/liste-t';
 export class AuthenticationPage{
 
   loading: any;
-  loginData = { email:'', password:'', userstype_id:'' };
+  loginData = { email:'apaeahi.tcc@gmail.com', password:'lolipop', userstype_id:'' };
   data: any;
 
   constructor(public navCtrl: NavController, 
@@ -31,15 +33,19 @@ export class AuthenticationPage{
     this.showLoader();
     this.authService.login(this.loginData)
     .then((result) => {
+
       this.loading.dismiss();
       this.data = result;
-      if (this.data.success.userstype_id == 3) {
-      localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(MenuCPage);
-      console.log('result',this.data) }
       if (this.data.success.userstype_id == 1) {
       localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(ListeTPage);}
+      this.navCtrl.setRoot(ListeTPage);
+      console.log('result',this.data.success) }
+      if (this.data.success.userstype_id == 2) {
+      localStorage.setItem('token', this.data.access_token);
+      this.navCtrl.setRoot(MenuCPage);}
+      if (this.data.success.userstype_id == 3) {
+        localStorage.setItem('token', this.data.access_token);
+        this.navCtrl.setRoot(AssitantePage);}
     }, (err) => {
       this.loading.dismiss();
       this.presentToast(err);
