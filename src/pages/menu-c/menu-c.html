@@ -13,7 +13,7 @@
     <ion-item>
       <ion-title>Mardi</ion-title>
       
-      <ion-card col-3 class="cardMenuC" (click)="ClicMardi(event[i])" *ngFor="let event of mardi" [style.background-color]="event.color">
+      <ion-card col-3 class="cardMenuC" (click)="ClicMardi(event.number)" *ngFor="let event of mardi" [style.background-color]="event.color">
         <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
         <ion-card-content>
           <p> {{ event.name }}</p>
@@ -27,10 +27,10 @@
     <ion-item>
       <ion-title>Mercredi</ion-title>
 
-      <ion-card col-3 class="cardMenuC" (click)="clic(event.number)" *ngFor="let event of mercredi" >
+      <ion-card col-3 class="cardMenuC" (click)="ClicMer(titi.number)" *ngFor="let titi of mercredi" [style.background-color]="titi.color">
         <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
         <ion-card-content>
-          <p> {{ event.name }}</p>
+          <p> {{ titi.name }}</p>
         </ion-card-content>
       </ion-card>
 
@@ -40,10 +40,10 @@
     <ion-item>
       <ion-title>Jeudi</ion-title>
 
-      <ion-card col-3 class="cardMenuC" (click)="clic(event.number)" *ngFor="let event of jeudi">
+      <ion-card col-3 class="cardMenuC" (click)="Clicjeu(toto.number)" *ngFor="let toto of jeudi" [style.background-color]="toto.color">
         <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
         <ion-card-content>
-          <p> {{ event.name }}</p>
+          <p> {{ toto.name }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
@@ -52,10 +52,10 @@
     <ion-item>
       <ion-title>Vendredi</ion-title>
 
-      <ion-card col-3 class="cardMenuC" (click)="clic(event.number)" *ngFor="let event of vendredi">
+      <ion-card col-3 class="cardMenuC" (click)="ClicVen(tata.number)" *ngFor="let tata of vendredi" [style.background-color]="tata.color">
         <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
         <ion-card-content>
-          <p> {{ event.name }}</p>
+          <p> {{ tata.name }}</p>
         </ion-card-content>
       </ion-card>
 
