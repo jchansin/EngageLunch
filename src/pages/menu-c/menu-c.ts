@@ -55,27 +55,27 @@ export class MenuCPage {
     for (let i = 0; i < this.menuC.length; i++) {
       if (this.menuC[i].date == "2018-06-26") {
 
-        this.mardi.push({ "jours": "mardi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "bolean": true })
+        this.mardi.push({ "jours": "mardi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "color": "white" })
         console.log('colo: ', this.menuC[i].meal[0].name)
       }
       else {
         if (this.menuC[i].date == "2018-06-27") {
 
-          this.mercredi.push({ "jours": "mercredi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "bolean": true })
+          this.mercredi.push({ "jours": "mercredi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "color": "white" })
           console.log('colo: ', this.menuC[i].meal[0].name)
 
         }
         else {
           if (this.menuC[i].date == "2018-06-28") {
 
-            this.jeudi.push({ "jours": "jeudi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "bolean": true })
+            this.jeudi.push({ "jours": "jeudi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "color": "white" })
             console.log('colo: ', this.menuC[i].meal[0].name)
 
           }
           else {
             if (this.menuC[i].date == "2018-06-29") {
 
-              this.vendredi.push({ "jours": "jeudi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "bolean": true })
+              this.vendredi.push({ "jours": "vendredi"  , "number" : i,  "name": this.menuC[i].meal[0].name, "color": "white" })
               console.log('colo: ', this.menuC[i].meal[0].name)
   
             }
@@ -88,13 +88,22 @@ export class MenuCPage {
     }
   }
 
+  ClicMardi(i){
+    console.log('backG', this.mardi)
+    console.log('A', i)
+
+    if(this.mardi[0].color == "white") this.mardi[0].color ="#78eb74a1"
+      else this.mardi[0].color ="white"
+    
+
+
+  }
+
   getUsers() {
     this.menuProvider.getMenuC()
       .then(data => {
         this.menuC = data.data
         this.getMenu();
-
-
       });
   }
 
