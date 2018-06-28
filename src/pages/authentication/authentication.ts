@@ -5,6 +5,8 @@ import { HomePage } from '../home/home';
 import { MenuCPage } from '../menu-c/menu-c';
 import { MenuTPage } from '../menu-t/menu-t';
 import { ListeTPage } from '../liste-t/liste-t';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { AssistantePage } from '../assistante/assistante';
 /**
  * Generated class for the AuthenticationPage page.
  *
@@ -25,7 +27,8 @@ export class AuthenticationPage{
   constructor(public navCtrl: NavController,  
     public authService: AuthService, 
     public loadingCtrl: LoadingController, 
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private nativeStorage: NativeStorage) {}
 
   doLogin() {
     this.showLoader();
@@ -33,13 +36,22 @@ export class AuthenticationPage{
     .then((result) => {
       this.loading.dismiss();
       this.data = result;
-      if (this.data.success.userstype_id == 3) {
-      localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(MenuCPage, {});
-      console.log('result',this.data) }
+
       if (this.data.success.userstype_id == 1) {
-      localStorage.setItem('token', this.data.access_token);
-      this.navCtrl.setRoot(ListeTPage, {} );}
+        this.nativeStorage.setItem('token', this.data.access_token);
+        this.navCtrl.setRoot(MenuCPage);
+        console.log('result du traiteur',this.data) }
+
+      if (this.data.success.userstype_id == 2) {
+        this.nativeStorage.setItem('token', this.data.access_token);
+        this.navCtrl.setRoot(ListeTPage);}
+        console.log('result du collaborateur')
+
+      if (this.data.success.userstype_id == 3) {
+        this.nativeStorage.setItem('token', this.data.access_token);
+        this.navCtrl.setRoot(AssistantePage);}
+        console.log('result de assitante')
+
     }, (err) => {
       this.loading.dismiss();
       this.presentToast(err);

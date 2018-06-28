@@ -20,6 +20,7 @@ import { ListeTPage } from './../pages/liste-t/liste-t';
 import { AuthenticationPage } from './../pages/authentication/authentication';
 import { MenuCProvider } from './../providers/menu-c/menu-c';
 import { AuthService } from './../providers/auth-service/auth-service';
+import { AssistantePage } from '../pages/assistante/assistante';
 
 
 
@@ -33,6 +34,7 @@ import { AuthService } from './../providers/auth-service/auth-service';
     MenuCPage,
     MenuTPage,
     RecapCPage,
+    AssistantePage,
 
   ],
   imports: [
@@ -49,6 +51,7 @@ import { AuthService } from './../providers/auth-service/auth-service';
     MenuCPage,
     MenuTPage,
     RecapCPage,
+    AssistantePage,
 
   ],
   providers: [
