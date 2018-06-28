@@ -21,7 +21,7 @@ export class MenuCProvider {
 
   getMenuC(): Promise<any> {
     let headers = new Headers();
-    let tokenHeader = 'Bearer ' + this.data;
+    let tokenHeader = 'Bearer' + this.data;
     headers.append("Accept", "application/json");
     headers.append("Authorization", tokenHeader);
 
