@@ -1,18 +1,79 @@
-<!--
-  Generated template for the MenuCPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>MenuC</ion-title>
+    <ion-title>Semaine du {{ dateTo }}/{{ mois }} au {{ FromDate }}/{{ mois }} </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-title>Mardi</ion-title>
+      <button *ngFor="let event of mardi">
+        <ion-card col-3 class="cardMenuC" (click)="clic()">
+          <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
+          <ion-card-content>
+            <p> {{ event.name }}</p>
+          </ion-card-content>
+        </ion-card>
+
+      </button>
+
+
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-title>Mercredi</ion-title>
+
+      <ion-card col-3 class="cardMenuC" (click)="clic(event.name)" *ngFor="let event of mercredi">
+        <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
+        <ion-card-content>
+          <p> {{ event.name }}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-item>
+
+
+    <ion-item>
+      <ion-title>Jeudi</ion-title>
+
+      <ion-card col-3 class="cardMenuC" (click)="clic()" *ngFor="let event of jeudi">
+        <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
+        <ion-card-content>
+          <p> {{ event.name }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-title>Vendredi</ion-title>
+
+      <ion-card col-3 class="cardMenuC" (click)="clic()" *ngFor="let event of vendredi">
+        <img src="https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg" />
+        <ion-card-content>
+          <p> {{ event.name }}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-item>
+
+
+
+
+
+
+  </ion-list>
+
+
+
+
+  <button ion-button (click)="AlertConfirm()" full>Valider </button>
 
 </ion-content>

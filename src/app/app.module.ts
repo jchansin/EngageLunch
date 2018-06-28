@@ -3,9 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, Toast } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
 
 // Native plug-ins
 import { Push } from '@ionic-native/push';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 
 import { MyApp } from './app.component';
@@ -15,6 +18,10 @@ import { MenuTPage } from './../pages/menu-t/menu-t';
 import { MenuCPage } from './../pages/menu-c/menu-c';
 import { ListeTPage } from './../pages/liste-t/liste-t';
 import { AuthenticationPage } from './../pages/authentication/authentication';
+import { MenuCProvider } from './../providers/menu-c/menu-c';
+import { AuthService } from './../providers/auth-service/auth-service';
+
+
 
 
 @NgModule({
@@ -26,11 +33,11 @@ import { AuthenticationPage } from './../pages/authentication/authentication';
     MenuCPage,
     MenuTPage,
     RecapCPage,
-    Toast,
-    Push
+
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -42,13 +49,18 @@ import { AuthenticationPage } from './../pages/authentication/authentication';
     MenuCPage,
     MenuTPage,
     RecapCPage,
-    Toast,
-    Push
+
   ],
   providers: [
+    MenuCProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
+    NativeStorage,
+    Push,
+
+
   ]
 })
 export class AppModule {}
