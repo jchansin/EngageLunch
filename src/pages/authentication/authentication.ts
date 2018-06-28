@@ -22,7 +22,7 @@ export class AuthenticationPage{
 
   loading: any;
   loginData = { email:'', password:'', userstype_id:'' };
-  data: any;
+  data : any;
 
   constructor(public navCtrl: NavController,  
     public authService: AuthService, 
